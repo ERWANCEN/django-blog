@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    image: django-blog:dev        # nom de l'image construite
+    container_name: blog-web      # nom du conteneur
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app                    # votre code est monté en direct dans le conteneur
+    ports:
+      - "8000:8000"               # port_machine:port_conteneur
